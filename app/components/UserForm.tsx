@@ -36,7 +36,9 @@ export default function UserForm() {
       setPassword("");
     } catch (err) {
       console.error(err);
-      setMessage("Failed to create user. See console for details.");
+      // Show a helpful error message in the UI so the user can see why the write failed
+      const msg = err instanceof Error ? err.message : String(err);
+      setMessage(`Failed to create user: ${msg}`);
     } finally {
       setLoading(false);
     }
