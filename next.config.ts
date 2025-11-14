@@ -6,9 +6,9 @@ const nextConfig: NextConfig = {
   output: "export",
   // Ensure routes are exported as directories (good for GH Pages)
   trailingSlash: true,
-  // If you're deploying to https://iamjhomi.github.io/system set basePath and assetPrefix
-  basePath: "/system",
-  assetPrefix: "/system/",
+  // Use relative asset paths so the exported site can be served from GitHub Pages
+  // without requiring a specific basePath. Relative assets are more portable.
+  assetPrefix: "./",
 };
 
 export default nextConfig;
